@@ -13,7 +13,7 @@ const doctorList = _.range(0, Random.natural(2, 10)).map((index) => {
     startTime: Random.datetime('yyyy-MM-dd HH:mm:ss')
   }
 });
-const doctorNo = {
+const nodata = {
   msg: '暂无数据',
   code: '-1'
 }
@@ -30,7 +30,7 @@ const install = server => {
     res.set('Access-Control-Allow-Origin', '*');
     let data = doctorList.find(item => item.id == id)
     if (!data) {
-      data = doctorNo;
+      data = nodata;
     };
     res.send(data);
   });
